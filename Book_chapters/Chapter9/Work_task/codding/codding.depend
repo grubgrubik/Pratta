@@ -1,4 +1,7 @@
 # depslib dependency file v1.0
-1632690016 source:d:\grub\programming\github\pratta\book_chapters\chapter9\work_task\codding\main.c
+1633920066 source:d:\grub\programming\github\pratta\book_chapters\chapter9\work_task\codding\main.c
 	<stdio.h>
+	"function.h"
+
+1633919946 d:\grub\programming\github\pratta\book_chapters\chapter9\work_task\codding\function.h
 
