@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1634074732 source:d:\grub\programming\github\pratta\book_chapters\chapter9\work_task\codding\main.c
+1634077357 source:d:\grub\programming\github\pratta\book_chapters\chapter9\work_task\codding\main.c
+	<stdbool.h>
 	<stdio.h>
 	"func_describle.h"
 
@@ -11,5 +12,5 @@
 
 1634050875 d:\grub\programming\github\pratta\book_chapters\chapter9\work_task\codding\func_descible.h
 
-1634073978 d:\grub\programming\github\pratta\book_chapters\chapter9\work_task\codding\func_describle.h
+1634077753 d:\grub\programming\github\pratta\book_chapters\chapter9\work_task\codding\func_describle.h
 
