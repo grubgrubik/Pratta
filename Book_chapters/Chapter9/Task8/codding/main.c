@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-float pow_func(float n, int exp);
+float r_pow_func(float n, int exp);
 
 
 int main(void)
@@ -8,6 +8,7 @@ int main(void)
 
     float result, digit;
     int exp;
+    result = 0;
 
     printf("Enter number and integer power\n"
            "to switch the number will be riser");
@@ -15,7 +16,11 @@ int main(void)
 
     while (scanf("%f %d", &digit, &exp) == 2)
     {
-        result = pow_func(digit, exp);
+        if (exp < 0)
+            result = 1 / r_pow_func(digit, exp);
+        else
+            result = r_pow_func(digit, exp);
+
 
         printf("%.3f to the power %d is %.3f\n", digit, exp, result);
 
@@ -29,23 +34,18 @@ int main(void)
 
 
 
-float pow_func(float n, int exp)
+float r_pow_func(float n, int exp)
 {
-    float result = 1;
+    float result = 1.;
 
-    if (n == 0)
-        result = 0;
+    if (exp < 0 && n != 0)
+        result = n * r_pow_func(n, exp + 1);
+    else if (exp > 0 && n != 0)
+        result = n * r_pow_func(n, exp + -1);
     else if (exp == 0)
         result = 1;
-    else if (exp < 0)
-    {
-        for (int i = 1; i <= exp * -1; i++)
-            result *= n;
-            result = 1 / result;
-    }
     else
-        for (int i = 1; i <= exp; i++)
-            result *= n;
+        result = 0;
 
     return result;
 }
