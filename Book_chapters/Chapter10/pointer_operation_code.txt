@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(void)
+{
+    int mass[5] = {100,200,300,400,500};
+
+    int *ptr1, *ptr2, *ptr3;
+
+    ptr1 = mass;        // assign an address to a pointer
+    ptr2 = &mass[2];    // ditto
+                        // dereference a pointer and take
+                        // the address of a pointer
+
+    printf("pointer value,\t dereferenced pointer,\t pointer address:\n");
+    printf("ptr1 = %p,\t *ptr1 = %d,\t &ptr1 = %p", ptr1, *ptr1, &ptr1);
+
+
+
+    ptr3 = ptr1 + 4;    //pointer addition
+
+    printf("\nadding an int to a pointer:\n");
+    printf("ptr1 + 4 = %p,\t *(ptr1 + 3) = %d\n", ptr1 + 4, *(ptr1 + 3));
+
+    ptr1++;             // increment a pointer
+
+    printf("\nvalue after ptr1++:\n");
+    printf("ptr1 = %p,\t *ptr1 = %d,\t &ptr1 = %p\n", ptr1, *ptr1, &ptr1);
+
+    ptr2--;             // decrement a pointer
+
+    printf("\nvalue after ptr2--:\n");
+    printf("ptr2 = %p,\t *ptr2 = %d,\t &ptr2 = %p\n", ptr2, *ptr2, &ptr2);
+
+    --ptr1;             // restore to original value
+    ++ptr2;             // restore to original value
+
+    printf("\npointer reset to original value:\n");
+    printf("ptr1 = %p,\t ptr2 = %p\n", ptr1, ptr2);
+
+                        // subtract one pointer from another
+    printf("\nsubtracting one pointer from another:\n");
+    printf("ptr2 = %p,\t ptr1  = %p,\t ptr2 - ptr1 = %d\n", ptr2, ptr1, ptr2 - ptr1);
+
+                        // subtract an integer from a pointer
+    printf("\nsubtracting an int from a pointer:\n");
+
+    printf("ptr3 = %p,\t ptr3 - 2 = %p\n", ptr3, ptr3 - 2);
+
+
+    return 0;
+}

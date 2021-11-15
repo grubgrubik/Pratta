@@ -1,0 +1,54 @@
+/*
+	приклад використання складових літералів, для передачі масиву у функцію
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define COLS 4
+
+int sum2d(const int ar[][COLS], int rows);
+int sum(const int ar[], int n);
+
+
+int main(void)
+{
+    int total_1, total_2, total_3;
+
+    int *pt1;
+    int (*pt2)[COLS];
+
+    pt1 = (int [2]) {10, 20};
+    pt2 = (int[][COLS]) {{1, 2, 3, -9}, {4, 5, 6, -8}};
+
+    total_1 = sum(pt1, 2);
+    total_2 = sum2d(pt2, 2);
+    total_3 = sum((int []) {4, 4, 4, 5, 5, 5}, 6);
+
+    printf("total_1 = %d\n", total_1);
+    printf("total_2 = %d\n", total_2);
+    printf("total_3 = %d\n", total_3);
+
+    return 0;
+}
+
+int sum2d(const int ar[][COLS], int rows)
+{
+    int result = 0;
+
+    for(int i = 0; i < rows; i++)
+        for(int j = 0; j < COLS; j++)
+            result += ar[i][j];
+
+    return result;
+}
+
+
+int sum(const int ar[], int n)
+{
+    int result = 0;
+
+    for(int i = 0; i < n; i++)
+        result += ar[i];
+    return result;
+}
