@@ -1,0 +1,2 @@
+Write a function that returns the largest value stored in an array-of-int. Test the function
+in a simple program.
