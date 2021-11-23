@@ -1,0 +1,81 @@
+	HERE IS THE OUTPUT ON ONE SYSTEM:
+	
+pointer value, dereferenced pointer, pointer address:
+ptr1 = 0x7fff5fbff8d0, *ptr1 =100, &ptr1 = 0x7fff5fbff8c8
+adding an int to a pointer:
+ptr1 + 4 = 0x7fff5fbff8e0, *(ptr4 + 3) = 400
+values after ptr1++:
+ptr1 = 0x7fff5fbff8d4, *ptr1 =200, &ptr1 = 0x7fff5fbff8c8
+values after --ptr2:
+ptr2 = 0x7fff5fbff8d4, *ptr2 = 200, &ptr2 = 0x7fff5fbff8c0
+Pointers reset to original values:
+ptr1 = 0x7fff5fbff8d0, ptr2 = 0x7fff5fbff8d8
+subtracting one pointer from another:
+ptr2 = 0x7fff5fbff8d8, ptr1 = 0x7fff5fbff8d0, ptr2 - ptr1 = 2
+subtracting an int from a pointer:
+ptr3 = 0x7fff5fbff8e0, ptr3 - 2 = 0x7fff5fbff8d8
+The following list describes the basic operations that can be performed with or on pointer
+variables:
+
+■	Assignment—You can assign an address to a pointer. The assigned value can be, for
+	example, an array name, a variable preceded by address operator (&), or another second
+	pointer. In the example, ptr1 is assigned the address of the beginning of the array urn.
+	This address happens to be memory cell number 0x7fff5fbff8d0. The variable ptr2
+	gets the address of the third and last element, urn[2]. Note that the address should be
+	compatible with the pointer type. That is, you can’t assign the address of a double to a
+	pointer-to-int, at least not without making an ill-advised type cast. C99/C11 enforces
+	this rule.
+	
+■ 	Value finding (dereferencing)—The * operator gives the value stored in the pointed-to
+	location. Therefore, *ptr1 is initially 100, the value stored at location 0x7fff5fbff8d0.
+	
+■	Taking a pointer address—Like all variables, a pointer variable has an address and a
+	value. The & operator tells you where the pointer itself is stored. In this example, ptr1
+	is stored in memory location 0x7fff5fbff8c8. The content of that memory cell is
+	0x7fff5fbff8d0, the address of urn. So &pt1 is a pointer to pt1, which, in turn, is a
+	pointer to urn[0].
+
+■ 	Adding an integer to a pointer—You can use the + operator to add an integer to a
+	pointer or a pointer to an integer. In either case, the integer is multiplied by the number
+	of bytes in the pointed-to type, and the result is added to the original address. This
+	makes ptr1 + 4 the same as &urn[4]. The result of addition is undefined if it lies
+	outside of the array into which the original pointer points, except that the address one
+	past the end element of the array is guaranteed to be valid.
+	
+■	Incrementing a pointer—Incrementing a pointer to an array element makes it move to
+	the next element of the array. Therefore, ptr1++ increases the numerical value of ptr1
+	by 4 (4 bytes per int on our system) and makes ptr1 point to urn[1] (see Figure 10.4 ,
+	which uses simplified addresses). Now ptr1 has the value 0x7fff5fbff8d4 (the next
+	array address), and *ptr1 has the value 200 (the value of urn[1]). Note that the address
+	of ptr1 itself remains 0x7fff5fbff8c8. After all, a variable doesn’t move around just
+	because it changes value!
+	
+■	Subtracting an integer from a pointer—You can use the - operator to subtract an
+	integer from a pointer; the pointer has to be the first operand and the integer value the
+	second operand. The integer is multiplied by the number of bytes in the pointed-to type,
+	and the result is subtracted from the original address. This makes ptr3 - 2 the same as
+	&urn[2] because ptr3 points to &urn[4]. The result of subtraction is undefined if it lies
+	outside of the array into which the original pointer points, except that the address one
+	past the end element of the array is guaranteed to be valid.
+	
+■	Decrementing a pointer—Of course, you can also decrement a pointer. In this example,
+	decrementing ptr2 makes it point to the second array element instead of the third. Note
+	that you can use both the prefix and postfix forms of the increment and decrement
+	operators. Also note that both ptr1 and ptr2 wind up pointing to the same element,
+	urn[1], before they get reset.
+	
+■	Differencing—You can find the difference between two pointers. Normally, you do this
+	for two pointers to elements that are in the same array to find out how far apart the
+	elements are. The result is in the same units as the type size. For example, in the output
+	from Listing 10.13, ptr2 - ptr1 has the value 2, meaning that these pointers point
+	to objects separated by two ints, not by 2 bytes. Subtraction is guaranteed to be a valid
+	operation as long as both pointers point into the same array (or possibly to a position
+	one past the end). Applying the operation to pointers to two different arrays might
+	produce a value or could lead to a runtime error.
+	
+■	Comparisons—You can use the relational operators to compare the values of two
+	pointers, provided the pointers are of the same type.
+	
+	
+Note that there are two forms of subtraction. You can subtract one pointer from another to get
+an integer, and you can subtract an integer from a pointer and get a pointer
