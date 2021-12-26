@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1584205420 source:d:\grub\programming\github\pratta\book_chapters\chapter11\work_task\codding\main.c
+1640496950 source:d:\grub\programming\github\pratta\book_chapters\chapter11\work_task\codding\main.c
 	<stdio.h>
-	<stdlib.h>
+	<string.h>
+	<ctype.h>
 

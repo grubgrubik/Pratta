@@ -1,0 +1,133 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+#define LINE 5
+#define LENGH 30
+
+char *fill_text_mass(char *mass, int n);	//fill the array
+void show_text_mass(char **mass, int n);	//show the array
+void sort_text_mass(char **mass, int n);	//sort array alphabetically
+void text_upp_mass(char **mass, int n);		//replace the lowercase to uppercase
+
+int main(void)
+{
+	char text_mass[LINE][LENGH];
+	char *p_line_mass[LINE];
+
+	int ct = 0;
+
+	printf("enter %d text lines and this program will sort them:\n", LINE);
+	while (ct < LINE && fill_text_mass(*(text_mass + ct), LENGH) != NULL && *(*(text_mass + ct)) != '\0')
+	{
+		*(p_line_mass + ct) = text_mass + ct;
+		ct++;
+	}
+
+	if (*(*(text_mass + ct)) != '\0')
+	{
+		puts("\nyour text line:");
+
+		show_text_mass(p_line_mass, ct);
+
+		sort_text_mass(p_line_mass, ct);
+
+		puts("your text lines after sorting:");
+
+		show_text_mass(p_line_mass, ct);
+
+		puts("and now text in up-register:");
+
+		text_upp_mass(p_line_mass, ct);
+
+		show_text_mass(p_line_mass, ct);
+
+		puts("\nthe end");
+	}
+	else
+	{
+		puts("\nthe end\n");
+	}
+
+	puts("\nI knew that i would do it");
+
+
+
+
+	return 0;
+
+}
+
+
+char *fill_text_mass(char *mass, int n)
+{
+	char ret_point;
+	int i = 0;
+
+	ret_point = fgets(mass, n, stdin);
+	if (ret_point)
+	{
+		while (mass[i] != '\n' && mass[i] != '\0')
+		{
+			i++;
+		}
+
+		if (mass[i] == '\n')
+		{
+			mass[i] = '\0';
+		}
+		else
+		{
+			while (getchar() != '\n')
+			{
+			continue;
+			}
+		}
+
+	}
+	return ret_point;
+}
+
+void show_text_mass(char **mass, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		puts(*(mass + i));
+	}
+}
+
+void sort_text_mass(char **mass, int n)
+{
+	char *p_pointer;
+
+	for (int i = 0; i < n - 1; i++)
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			if (strcmp(*(mass + i), *(mass + j)) > 0)
+			{
+				p_pointer = *(mass + i);
+				*(mass + i) = *(mass + j);
+				*(mass + j) = p_pointer;
+			}
+		}
+	}
+}
+
+
+void text_upp_mass(char **mass, int n)
+{
+	int count;
+	for (int i = 0; i < n; i++)
+	{
+		count = 0;
+		while (*(*(mass + i) + count))
+		{
+			if (islower(*(*(mass + i) + count)))
+			{
+				*(*(mass + i) + count) = toupper(*(*(mass + i) + count));
+			}
+			count++;
+		}
+	}
+}
