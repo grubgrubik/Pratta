@@ -1,5 +1,7 @@
 Other String Functions
 
+library <string.h>
+
 The ANSI C library has more than 20 string-handling functions, and the following list summarizes some of the more commonly used ones:
 
 ■ char *strcpy(char * restrict s1, const char * restrict s2);
