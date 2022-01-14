@@ -1,0 +1,33 @@
+================================================================================
+this function fill the string
+it get pointer to the string and quantity of symbols
+it returns pointer (zero or value) 
+
+char *s_gets(char *m_string, int c_symbol)
+{
+	int i = 0;
+	char *p_answer;
+	
+	p_answer = fgets(m_string, c_symbol, stdin);
+	
+	if(p_answer)
+	{
+		while(*(m_string + i) != '\n' && *(m_string + i) != '\0')
+		{
+			i++;
+		}
+		if(*(m_string + i) == '\n')
+		{
+			*(m_string + i) = '\0';
+		}
+		else
+		{
+			while(getchar() != '\n')
+			{
+				continue;
+			}
+		}
+	}
+	return p_answer;
+}
+===============================================================================
