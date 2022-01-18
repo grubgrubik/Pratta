@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1642475831 source:d:\grub\programming\github\pratta\book_chapters\chapter11\task10\codding\main.c
+	<stdio.h>
+
+1642474951 d:\grub\programming\github\pratta\book_chapters\chapter11\task10\codding\s_gets.h
+
+1642475107 source:d:\grub\programming\github\pratta\book_chapters\chapter11\task10\codding\s_gets.c
+	<stdio.h>
+	<string.h>
+
