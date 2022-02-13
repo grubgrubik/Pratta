@@ -1,0 +1,28 @@
+The ctype.h Character-Testing Functions
+
+Name 					True If the Argument Is
+
+isalnum() 				Alphanumeric (alphabetic or numeric)
+isalpha() 				Alphabetic
+isblank() 				A standard blank character (space, horizontal tab, or newline) or any additional
+						locale-specific character so specified
+iscntrl() 				A control character, such as Ctrl+B
+isdigit() 				A digit
+isgraph() 				Any printing character other than a space
+islower() 				A lowercase character
+isprint() 				A printing character
+ispunct() 				A punctuation character (any printing character other than a space or an alphanumeric character)
+isspace() 				A whitespace character (a space, newline, formfeed, carriage return, vertical
+						tab, horizontal tab, or, possibly, other locale-defined character)
+isupper() 				An uppercase character
+isxdigit() 				A hexadecimal-digit character
+
+
+The ctype.h Character-Mapping Functions
+
+Name 					Action
+
+tolower() 				If the argument is an uppercase character, this function returns the lowercase version;
+						otherwise, it just returns the original argument.
+toupper() 				If the argument is a lowercase character, this function returns the uppercase version; 
+						otherwise, it just returns the original argument.
